@@ -10,7 +10,7 @@ result = gmaps reverse_geocode lat: 52.36015 lon: 4.89571
 ```
 
 ### TODOs
-This is a WIP in progress service, and as such, only a few APIs from the Google Maps SDK have
+This is a WIP service, and as such, only a few APIs from the Google Maps SDK have
 been exposed.
 
 PRs are welcome.

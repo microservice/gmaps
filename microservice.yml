@@ -50,7 +50,7 @@ actions:
         country:
           type: string
         full_response:
-          type: array
+          type: list
 environment:
   API_KEY:
     help: |

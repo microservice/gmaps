@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '12'
+services:
+- docker
+before_install:
+- npm i @microservices/cli
+script:
+- npx oms build
+- |
+  output="$(npx oms run --silent geocode -a address='1600 Pennsylvania Ave NW, Washington, DC 20500' -e API_KEY=$API_KEY | jq -c .)"
+  if [ "$output" != '{"lat":38.8976633,"lon":-77.0365739}' ] ; then echo "$output"; exit 1; fi
+env:
+  global:
+    secure: T8Y361dzldrIDMymDD+nC+XcyUTsalnBiOg9wsapSMW7/Ap4CDypxHeK+iQAsycbvN6U8BqOx7yXlhSudAKRr4pE2dl68Qozt/idt2QNFbFE4KmFowUut2uCSVg/PoWsSwUXs3PLTQhhaDkI8cMR8C/oP3wE34RVxt400TPi8PyfjxWsDAUqrzwfBtLIHjiJun8HuM5fxVWa8/nZ5vCSJekgQD4kOiRyeifFtnv6jbaN6X5OQoHY3Fsm67HsC5ecPX+Qeg6pcqIGBlMiTHmR2+6MwDvzhd8dXBoiP07nmC0O3qo//IRT8VjHYfUn6l2/dm1LaZf+/0NILZ8Sgefxg9KX/sq50hMyAT2xuqVZkJMVqhyPS+TDfjVEdpY1OESgJPIfrhO88Zeod4HzqoEkOgzexMcshTV/iuovbL0LvNmZ5KNZhGFkYeziGorCYe4HN55YKYd9nveU0s5LtPWlsQihAN6z465w2q0YXjTQPnUqsU5sslgdHoDPh3fxYoqqruiUMWUY1EJeeMMws1GlkUxhpmbKbQwbkYDtqEUwdWoIpcoF+0vdp85C9NRcAqJMROEhgPlXEbuKLxmk2e9rJVfcGMA4NGl73AgNGeo4Xk/Ak2/EWADf4KlYqG1LCZ5aLMCmiVAPek5irI2uISf1f42yfwvVczPID2XXJqjHpzc=

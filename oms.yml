@@ -1,7 +1,7 @@
-omg: 1
+oms: 1
 lifecycle:
   startup:
-    command: ["python", "/app/app.py"]
+    command: ['python', '/app/app.py']
 info:
   version: 1.0.0
   title: gmaps
@@ -57,3 +57,4 @@ environment:
       Create an API key for using the Google Maps API from
       https://console.developers.google.com/apis/credentials
     type: string
+    required: true

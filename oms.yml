@@ -4,8 +4,8 @@ lifecycle:
     command: ['python', '/app/app.py']
 info:
   version: 1.0.0
-  title: gmaps
-  description: This is a gmaps service
+  title: Google Maps
+  description: A wrapper for the Google Maps API
 actions:
   geocode:
     http:

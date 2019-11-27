@@ -1,11 +1,17 @@
 oms: 1
-lifecycle:
-  startup:
-    command: ['python', '/app/app.py']
 info:
   version: 1.0.0
   title: Google Maps
   description: A wrapper for the Google Maps API
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
+lifecycle:
+  startup:
+    command:
+      - python
+      - /app/app.py
 actions:
   geocode:
     http:
